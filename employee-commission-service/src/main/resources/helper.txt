@@ -1,0 +1,6 @@
+Direct consuming
+http://localhost:8701/commission/100/1
+http://localhost:8702/commission/100/1
+
+ZUUL consuming
+http://localhost:8762/employee-commission-service/commission/100/1

@@ -1,0 +1,5 @@
+Direct consuming
+http://localhost:8700/employees/100
+
+ZUUL consuming
+http://localhost:8762/employee-service/employees/100

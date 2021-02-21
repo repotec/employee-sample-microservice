@@ -1,0 +1,47 @@
+server:
+  port: 8760
+  
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb
+  
+  data:    jpa:      repositories:        bootstrap-mode: default
+  jpa:     show-sql: true
+  
+  h2:    console:      enabled: true  cloud:    config:      profile: dev
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+  instance:    prefer-ip-address: true
+
+feign:  hystrix:    enabled: true
+  client:
+    config:
+      default:
+        connectTimeout: 2000
+        readTimeout: 2000
+        loggerLevel: basic
+
+                    
+# will be read from employee-config-server
+#################################
+#eureka:
+#  client:
+#    service-url:
+#      default-zone: http://localhost:8761/eureka
+    
+    
+# moved to bootstrap yml file under resource directorty
+################################# 
+#spring:
+#  application:
+#    name: employee-service
+    
+    
+# eureka discovery will register both instances and use ribbon instead of below configuration
+#employee-commission-service:
+#  ribbon:
+#    listOfServers:
+#      http://localhost:8701,http://localhost:8702
